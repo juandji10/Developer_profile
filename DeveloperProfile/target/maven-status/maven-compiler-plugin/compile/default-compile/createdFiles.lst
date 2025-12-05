@@ -1,2 +1,10 @@
 com\mycompany\developerprofile\resources\JakartaEE10Resource.class
+com\developerprofile\controller\HabilidadEditServlet.class
+com\developerprofile\dao\MongoConfig.class
+com\developerprofile\model\Habilidad.class
+com\developerprofile\model\Usuario.class
+com\developerprofile\controller\HabilidadDeleteServlet.class
+com\developerprofile\controller\HabilidadListServlet.class
+com\developerprofile\dao\HabilidadDAO.class
 com\mycompany\developerprofile\JakartaRestConfiguration.class
+com\developerprofile\controller\HabilidadAddServlet.class
