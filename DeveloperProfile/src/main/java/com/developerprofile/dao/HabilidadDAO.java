@@ -33,6 +33,7 @@ public class HabilidadDAO {
 
         for (Document doc : collection.find()) {
             Habilidad h = new Habilidad(
+                doc.getInteger("nivel"),
                 doc.getObjectId("_id").toString(),
                 doc.getString("nombre")
             );

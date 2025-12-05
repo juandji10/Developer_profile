@@ -2,7 +2,7 @@
 <%@ page import="java.util.List" %> 
 <%@ page import="com.developerprofile.model.Habilidad" %> 
 <% 
-    List<Habilidad>lista = (List<Habilidad>) request.getAttribute("listaHabilidades"); 
+    List<Habilidad> lista = (List<Habilidad>) request.getAttribute("habilidades"); 
 %>
 
 <!DOCTYPE html>

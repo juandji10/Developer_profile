@@ -8,4 +8,44 @@
             30
         </session-timeout>
     </session-config>
+    
+        <servlet>
+        <servlet-name>HabilidadListServlet</servlet-name>
+        <servlet-class>com.developerprofile.controller.HabilidadListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HabilidadListServlet</servlet-name>
+        <url-pattern>/habilidades</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HabilidadAddServlet</servlet-name>
+        <servlet-class>com.developerprofile.controller.HabilidadAddServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HabilidadAddServlet</servlet-name>
+        <url-pattern>/habilidades/add</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HabilidadEditServlet</servlet-name>
+        <servlet-class>com.developerprofile.controller.HabilidadEditServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HabilidadEditServlet</servlet-name>
+        <url-pattern>/habilidades/edit</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>HabilidadDeleteServlet</servlet-name>
+        <servlet-class>com.developerprofile.controller.HabilidadDeleteServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HabilidadDeleteServlet</servlet-name>
+        <url-pattern>/habilidades/delete</url-pattern>
+    </servlet-mapping>
 </web-app>

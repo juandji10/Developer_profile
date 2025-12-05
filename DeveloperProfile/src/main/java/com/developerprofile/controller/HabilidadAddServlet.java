@@ -16,8 +16,9 @@ public class HabilidadAddServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String nombre = request.getParameter("nombre");
+        int nivel = Integer.parseInt(request.getParameter("nivel"));
 
-        Habilidad hab = new Habilidad(null, nombre);
+        Habilidad hab = new Habilidad(nivel, null, nombre);
 
         new HabilidadDAO().agregarHabilidad(hab);
 
