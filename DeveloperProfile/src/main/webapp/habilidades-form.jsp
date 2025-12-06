@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="d-flex justify-content-between">
-                    <a href="HabilidadController?action=listar" class="btn btn-secondary">Volver</a>
+                    <a href="habilidades" class="btn btn-secondary">Volver</a>
                     <button type="submit" class="btn btn-success">
                         <%= modoEdicion ? "Actualizar" : "Guardar" %>
                     </button>

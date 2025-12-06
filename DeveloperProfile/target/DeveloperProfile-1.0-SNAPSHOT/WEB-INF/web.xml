@@ -26,7 +26,7 @@
 
     <servlet-mapping>
         <servlet-name>HabilidadAddServlet</servlet-name>
-        <url-pattern>/habilidades/add</url-pattern>
+        <url-pattern>/HabilidadAddServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -48,4 +48,5 @@
         <servlet-name>HabilidadDeleteServlet</servlet-name>
         <url-pattern>/habilidades/delete</url-pattern>
     </servlet-mapping>
+
 </web-app>

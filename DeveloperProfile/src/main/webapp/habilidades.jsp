@@ -21,7 +21,7 @@
           <h1 class="mb-4 text-center">Gestión de Habilidades</h1>
 
           <div class="text-end mb-3">
-            <a href="HabilidadController?action=nuevo" class="btn btn-primary">
+            <a href="HabilidadAddServlet" class="btn btn-primary">
               ➕ Agregar habilidad
             </a>
           </div>
@@ -41,9 +41,9 @@
                     <td><%= h.getHabilidad() %></td>
                     <td><%= h.getNivel() %></td>
                     <td>
-                        <a href="HabilidadController?action=editar&id=<%= h.getId() %>" class="btn btn-warning btn-sm">Editar</a>
+                        <a href="HabilidadEditServlet&id=<%= h.getId() %>" class="btn btn-warning btn-sm">Editar</a>
 
-                        <a href="HabilidadController?action=eliminar&id=<%= h.getId() %>" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que deseas eliminar esta habilidad?');">Eliminar</a>
+                        <a href="HabilidadDeleteServlet&id=<%= h.getId() %>" class="btn btn-danger btn-sm" onclick="return confirm('¿Seguro que deseas eliminar esta habilidad?');">Eliminar</a>
                     </td>
                 </tr>
               <% } } %>

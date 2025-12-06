@@ -32,9 +32,8 @@ public class HabilidadDAO {
         Document doc = collection.find(Filters.eq("_id", new ObjectId(id))).first();
         if (doc == null)
             return null;
-        Integer nivelDoc = doc.getInteger("nivel");
-        int nivel = (nivelDoc != null) ? nivelDoc : 0;
-        return new Habilidad(nivel, doc.getObjectId("_id").toString(), doc.getString("nombre"));
+        String nivelDoc = doc.getString("nivel");
+        return new Habilidad(nivelDoc, doc.getObjectId("_id").toString(), doc.getString("habilidad"));
     }
 
     // editar con nivel
@@ -47,10 +46,7 @@ public class HabilidadDAO {
     // Leer
     public List<Habilidad> listarHabilidades() {
         List<Habilidad> habilidades = new ArrayList<>();
-        MongoDatabase db = MongoConfig.getDatabase();
-        System.out.println("Total docs en la colección: " + collection.countDocuments());
-        System.out.println("DB actual: " + db.getName());
-        System.out.println("Colección: " + collection.getNamespace());
+
         for (Document doc : collection.find()) {
             String nivelTexto = doc.getString("nivel");
 
@@ -69,7 +65,6 @@ public class HabilidadDAO {
             } else {
                 nivelConvertido = "Avanzado";
             }
-            System.out.println("Leyendo -> " + doc.toJson());
             Habilidad h = new Habilidad(
                 doc.getObjectId("_id").toString(),
                 nivelConvertido,

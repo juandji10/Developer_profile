@@ -10,7 +10,10 @@ public class MongoConfig {
 
     public static MongoDatabase getDatabase() {
         if (database == null) {
-            String uri = "mongodb+srv://camiloramirezg_db_user:4kMrRgUtaLgEhoZS@cluster0.xgodlkb.mongodb.net/";
+            String uri = System.getenv("MONGO_URI");
+            if (uri == null || uri.isEmpty()) {
+                throw new RuntimeException("Error: Variable de entorno MONGO_URI no configurada");
+            }
             MongoClient client = MongoClients.create(uri);
 
             database = client.getDatabase("DataDeveloper"); 
