@@ -38,6 +38,7 @@
             <tbody>
               <% if (lista != null) { for (Habilidad h : lista) { %>
                 <tr>
+                    <td><%= h.getId() %></td>
                     <td><%= h.getNombre() %></td>
                     <td><%= h.getNivel() %></td>
                     <td>
