@@ -11,7 +11,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 
-
 public class HabilidadDAO {
 
     private final MongoCollection<Document> collection;
@@ -26,6 +25,23 @@ public class HabilidadDAO {
         Document doc = new Document("habilidad", habilidad.getHabilidad())
                     .append("nivel", habilidad.getNivel());
         collection.insertOne(doc);
+    }
+
+    // obtener por id
+    public Habilidad obtenerPorId(String id) {
+        Document doc = collection.find(Filters.eq("_id", new ObjectId(id))).first();
+        if (doc == null)
+            return null;
+        Integer nivelDoc = doc.getInteger("nivel");
+        int nivel = (nivelDoc != null) ? nivelDoc : 0;
+        return new Habilidad(nivel, doc.getObjectId("_id").toString(), doc.getString("nombre"));
+    }
+
+    // editar con nivel
+    public void editarHabilidad(String id, String nuevoNombre, int nuevoNivel) {
+        ObjectId objectId = new ObjectId(id);
+        Document updates = new Document("$set", new Document("nombre", nuevoNombre).append("nivel", nuevoNivel));
+        collection.updateOne(Filters.eq("_id", objectId), updates);
     }
 
     // Leer
@@ -80,6 +96,3 @@ public class HabilidadDAO {
         collection.deleteOne(Filters.eq("_id", objectId));
     }
 }
-
-
-
