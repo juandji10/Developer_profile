@@ -28,7 +28,7 @@
                         <p><strong>Email:</strong> ejemplo@correo.com</p>
                         <p><strong>Experiencia:</strong> 1 - 2 años (estudiante / junior)</p>
                         <a href="habilidades" class="btn btn-primary mt-2">
-                            Gestionar habilidades
+                            Habilidades
                         </a>
                     </div>
                 </div>

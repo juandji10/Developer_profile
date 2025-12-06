@@ -38,7 +38,7 @@
             <tbody>
               <% if (lista != null) { for (Habilidad h : lista) { %>
                 <tr>
-                    <td><%= h.getNombre() %></td>
+                    <td><%= h.getHabilidad() %></td>
                     <td><%= h.getNivel() %></td>
                     <td>
                         <a href="HabilidadController?action=editar&id=<%= h.getId() %>" class="btn btn-warning btn-sm">Editar</a>

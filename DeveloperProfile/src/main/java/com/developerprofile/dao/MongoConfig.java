@@ -6,15 +6,15 @@ import com.mongodb.client.MongoDatabase;
 
 public class MongoConfig {
 
-    private static final String URI = "mongodb://localhost:27017";
-    private static final String DB_NAME = "perfil_profesional";
-
-    private static MongoClient client = null;
+    private static MongoDatabase database;
 
     public static MongoDatabase getDatabase() {
-        if (client == null) {
-            client = MongoClients.create(URI);
+        if (database == null) {
+            String uri = "mongodb+srv://camiloramirezg_db_user:4kMrRgUtaLgEhoZS@cluster0.xgodlkb.mongodb.net/";
+            MongoClient client = MongoClients.create(uri);
+
+            database = client.getDatabase("DataDeveloper"); 
         }
-        return client.getDatabase(DB_NAME);
+        return database;
     }
 }

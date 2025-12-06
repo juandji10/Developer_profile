@@ -21,5 +21,6 @@ public class HabilidadListServlet extends HttpServlet {
         request.setAttribute("habilidades", habilidades);
 
         request.getRequestDispatcher("habilidades.jsp").forward(request, response);
+        System.out.println("Total habilidades encontradas: " + habilidades.size());
     }
 }

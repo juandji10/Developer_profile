@@ -25,7 +25,7 @@
                 <%= modoEdicion ? "Editar habilidad" : "Agregar nueva habilidad" %>
             </h2>
 
-            <form action="HabilidadController" method="post" class="card p-4 shadow-sm">
+            <form action="HabilidadAddServlet" method="post" class="card p-4 shadow-sm">
 
                 <input type="hidden" name="action" value="<%= modoEdicion ? "actualizar" : "insertar" %>">
 

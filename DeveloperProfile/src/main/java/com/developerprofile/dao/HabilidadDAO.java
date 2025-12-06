@@ -23,23 +23,45 @@ public class HabilidadDAO {
 
     // Crear
     public void agregarHabilidad(Habilidad habilidad) {
-        Document doc = new Document("nombre", habilidad.getNombre());
+        Document doc = new Document("habilidad", habilidad.getHabilidad())
+                    .append("nivel", habilidad.getNivel());
         collection.insertOne(doc);
     }
 
     // Leer
     public List<Habilidad> listarHabilidades() {
         List<Habilidad> habilidades = new ArrayList<>();
-
+        MongoDatabase db = MongoConfig.getDatabase();
+        System.out.println("Total docs en la colección: " + collection.countDocuments());
+        System.out.println("DB actual: " + db.getName());
+        System.out.println("Colección: " + collection.getNamespace());
         for (Document doc : collection.find()) {
-            Habilidad h = new Habilidad(
-                doc.getInteger("nivel"),
-                doc.getObjectId("_id").toString(),
-                doc.getString("nombre")
-            );
-            habilidades.add(h);
-        }
+            String nivelTexto = doc.getString("nivel");
 
+            int nivelNum = 0;
+            try {
+                nivelNum = Integer.parseInt(nivelTexto);
+            } catch (NumberFormatException e) {
+                nivelNum = 1;
+            }
+            String nivelConvertido;
+
+            if (nivelNum <= 2) {
+                nivelConvertido = "Básico";
+            } else if (nivelNum == 3) {
+                nivelConvertido = "Intermedio";
+            } else {
+                nivelConvertido = "Avanzado";
+            }
+            System.out.println("Leyendo -> " + doc.toJson());
+            Habilidad h = new Habilidad(
+                doc.getObjectId("_id").toString(),
+                nivelConvertido,
+                doc.getString("habilidad")
+            );
+
+        habilidades.add(h);
+        }
         return habilidades;
     }
 
@@ -48,7 +70,7 @@ public class HabilidadDAO {
         ObjectId objectId = new ObjectId(id);
         collection.updateOne(
             Filters.eq("_id", objectId),
-            new Document("$set", new Document("nombre", nuevoNombre))
+            new Document("$set", new Document("habilidad", nuevoNombre))
         );
     }
 

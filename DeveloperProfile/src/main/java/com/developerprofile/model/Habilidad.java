@@ -5,24 +5,32 @@ package com.developerprofile.model;
  * @author Juan1
  */
 public class Habilidad {
-    private Integer nivel;
+    private String nivel;
     private String id;
-    private String nombre;
+    private String habilidad;
 
     public Habilidad() {
     }
 
-    public Habilidad(Integer nivel, String id, String nombre) {
+    public Habilidad(String id, String nivel, String habilidad) {
         this.nivel = nivel;
         this.id = id;
-        this.nombre = nombre;
+        this.habilidad = habilidad;
     }
-    
-    public int getNivel(){
+
+    public String getHabilidad() {
+        return habilidad;
+    }
+
+    public void setHabilidad(String habilidad) {
+        this.habilidad = habilidad;
+    }
+
+    public String getNivel(){
         return nivel;
     }
     
-    public void setNivel(Integer nivel){
+    public void setNivel(String nivel){
         this.nivel = nivel;
     }
     
@@ -34,11 +42,4 @@ public class Habilidad {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
 }
